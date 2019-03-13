@@ -29,21 +29,45 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1_logout = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1_logout.setText("Logout");
+        jButton1_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_logoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 975, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(541, Short.MAX_VALUE)
+                .addComponent(jButton1_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(361, 361, 361))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 661, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(jButton1_logout)
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_logoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        Login Info = new Login();
+        Info.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton1_logoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +105,6 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1_logout;
     // End of variables declaration//GEN-END:variables
 }

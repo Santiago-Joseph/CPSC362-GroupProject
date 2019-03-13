@@ -226,7 +226,7 @@ public class Login extends javax.swing.JFrame {
          * Below Allows you to test with database.*
          ******************************************/
         
-        /*
+        
          Connection connection;
         PreparedStatement ps;
         try {
@@ -250,7 +250,7 @@ public class Login extends javax.swing.JFrame {
         } catch (SQLException ex) {
             //Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
         
         /*******************************************
          *Above code allows to login with database *
@@ -261,7 +261,7 @@ public class Login extends javax.swing.JFrame {
          * Below Allows you to test without database. Username:Test Password:Test*
          *************************************************************************/
         
-        
+        /*
          String password = jPassword.getText();
          String username = jtxtUsername.getText();
         if(password.contains("test")&&(username.contains("test")))
@@ -280,7 +280,7 @@ public class Login extends javax.swing.JFrame {
                 jPassword.setText(null);
                 jtxtUsername.setText(null);
         }
-        
+        */
         /**********************************************
          *Above code allows to login without database *
          **********************************************/
