@@ -248,7 +248,7 @@ public class adminLogin extends javax.swing.JFrame {
          * Below Allows you to test without database. Username:Test Password:Test*
          *************************************************************************/
         
-        /*
+        
         String password = jPassword.getText();
         String username = jtxtUsername.getText();
         if(password.contains("test")&&(username.contains("test")))
@@ -268,7 +268,7 @@ public class adminLogin extends javax.swing.JFrame {
             jtxtUsername.setText(null);
         }
         
-        */
+        
         /**********************************************
          *Above code allows to login without database *
          **********************************************/
