@@ -30,6 +30,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1_logout = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,21 +41,32 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Back_Button_ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(541, Short.MAX_VALUE)
+                .addContainerGap(778, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(37, 37, 37)
                 .addComponent(jButton1_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(361, 361, 361))
+                .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jButton1_logout)
-                .addContainerGap(356, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(405, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1_logout)
+                    .addComponent(jButton1))
+                .addGap(233, 233, 233))
         );
 
         pack();
@@ -68,6 +80,18 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
+
+    private void Back_Button_ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Back_Button_ActionPerformed
+        // TODO add your handling code here:
+        dispose();  //this statement gets rid of the current window
+        Login Info = new Login();   //this statement gives us another instance of another window, in our case Login
+        Info.setVisible(true);      //after creating this new instance of the object, we set the visbility to true so we can now visually
+                                    //see the Login window. 
+        /*NOTE: What if we want to go back to a previous window with the same saved data that was previously there before? Data would be 
+                     potentially stored in database so would we use that to retrieve data or would we save the data locally and then load
+                     the data from there?
+        */
+    }//GEN-LAST:event_Back_Button_ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +129,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_logout;
     // End of variables declaration//GEN-END:variables
 }
