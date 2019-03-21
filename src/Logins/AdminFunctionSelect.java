@@ -31,8 +31,14 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
 
         jButton1_logout = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        Adding_Removing_Label = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(java.awt.Color.pink);
+        setName("Adding_Removing_Label"); // NOI18N
 
         jButton1_logout.setText("Logout");
         jButton1_logout.addActionListener(new java.awt.event.ActionListener() {
@@ -48,21 +54,36 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
             }
         });
 
+        Adding_Removing_Label.setBackground(new java.awt.Color(255, 209, 220));
+        Adding_Removing_Label.setForeground(new java.awt.Color(0, 0, 0));
+        Adding_Removing_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/smallpawprint.png"))); // NOI18N
+        Adding_Removing_Label.setText("Adding and removing dogs or cats");
+        Adding_Removing_Label.setToolTipText("Add or remove dogs or cats from being avaliable from being adopted, walked, fostered,");
+        Adding_Removing_Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 191, 191), 1, true));
+        Adding_Removing_Label.setIconTextGap(9);
+        Adding_Removing_Label.setMaximumSize(new java.awt.Dimension(218, 22));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(778, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(Adding_Removing_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1322, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(405, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(Adding_Removing_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 635, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1_logout)
                     .addComponent(jButton1))
@@ -129,6 +150,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Adding_Removing_Label;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1_logout;
     // End of variables declaration//GEN-END:variables
