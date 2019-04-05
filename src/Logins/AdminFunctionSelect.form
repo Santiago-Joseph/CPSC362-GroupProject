@@ -10,10 +10,22 @@
             <StringItem index="1" value="Remove"/>
           </StringArray>
         </Property>
+        <Property name="opaque" type="boolean" value="false"/>
+        <Property name="prototypeDisplayValue" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;Add&quot;" type="code"/>
+        </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="jTable2"/>
+        </Property>
+      </AccessibilityProperties>
       <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="AdminFunctionSelect_jComboBox1"/>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="available_options">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -49,18 +61,24 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton1_logout" min="-2" pref="73" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                  <Component id="Adding_Removing_Label" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="Adding_Removing_Label" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="1129" max="32767" attributes="0"/>
+              <EmptySpace pref="604" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,14 +86,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="Adding_Removing_Label" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="179" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1_logout" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="Adding_Removing_Label" pref="35" max="32767" attributes="0"/>
+                  <Component id="jLabel1" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="199" max="32767" attributes="0"/>
+              <Component id="jButton1_logout" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -88,14 +109,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_logoutActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Back"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Back_Button_ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Adding_Removing_Label">
@@ -134,7 +147,7 @@
         <Component class="javax.swing.JTable" name="jTable2">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
+              <Table columnCount="4" rowCount="100">
                 <Column editable="true" title="Name" type="java.lang.Object"/>
                 <Column editable="true" title="Breed" type="java.lang.Object"/>
                 <Column editable="true" title="Note" type="java.lang.Object"/>
@@ -169,12 +182,62 @@
                 </Column>
               </TableColumnModel>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
+            <Property name="debugGraphicsOptions" type="int" value="1"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
             </Property>
+            <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="f7" green="f7" red="f7" type="rgb"/>
+        </Property>
+        <Property name="autoscrolls" type="boolean" value="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="313" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextField1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Detailed Information"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
