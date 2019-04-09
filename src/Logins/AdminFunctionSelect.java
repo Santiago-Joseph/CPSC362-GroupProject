@@ -40,7 +40,6 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        pet_name_text = new javax.swing.JTextField();
         pet_name_label = new javax.swing.JLabel();
         breed_info_label = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -48,6 +47,8 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         additional_notes_label = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         additional_notes_text = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        pet_name_text = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Add", "Remove" }));
@@ -201,14 +202,6 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(247, 247, 247));
         jPanel1.setAutoscrolls(true);
 
-        pet_name_text.setEditable(false);
-        pet_name_text.setText("jTextField1");
-        pet_name_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pet_name_textActionPerformed(evt);
-            }
-        });
-
         pet_name_label.setText("PET NAME:");
 
         breed_info_label.setText("BREED INFO");
@@ -223,6 +216,10 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         additional_notes_text.setRows(5);
         jScrollPane3.setViewportView(additional_notes_text);
 
+        pet_name_text.setColumns(20);
+        pet_name_text.setRows(5);
+        jScrollPane4.setViewportView(pet_name_text);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -230,12 +227,15 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(additional_notes_label)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                    .addComponent(breed_info_label)
-                    .addComponent(pet_name_label)
-                    .addComponent(pet_name_text, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3))
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(breed_info_label)
+                            .addComponent(additional_notes_label)
+                            .addComponent(pet_name_label)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(395, 395, 395)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,7 +244,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(pet_name_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pet_name_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(breed_info_label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -277,7 +277,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
                         .addComponent(Adding_Removing_Label)
                         .addGap(266, 266, 266)
                         .addComponent(jLabel1)))
-                .addContainerGap(636, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,20 +307,11 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
 
-    private void pet_name_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pet_name_textActionPerformed
-        // TODO add your handling code here:
-        int row = jTable2.getSelectedRow();
-        int column = jTable2.getSelectedColumn();
-        String data = (String)jTable2.getValueAt(row, column);
-        pet_name_text.setText(data);
-    }//GEN-LAST:event_pet_name_textActionPerformed
-
     private void jTable2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MousePressed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         int selectedRowIndex = jTable2.getSelectedRow();
         //int selectedColumnIndex = jTable2.getSelectedColumn();
-        
             pet_name_text.setText(model.getValueAt(selectedRowIndex,0).toString());
             breed_info_text.setText(model.getValueAt(selectedRowIndex,1).toString());
             additional_notes_text.setText(model.getValueAt(selectedRowIndex,2).toString());
@@ -377,8 +368,9 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel pet_name_label;
-    private javax.swing.JTextField pet_name_text;
+    private javax.swing.JTextArea pet_name_text;
     // End of variables declaration//GEN-END:variables
 }
