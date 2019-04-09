@@ -7,6 +7,7 @@ package Logins;
 
 import javax.swing.JButton;
 import javax.swing.DefaultCellEditor;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -68,7 +69,6 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         Adding_Removing_Label.setToolTipText("Add or remove dogs or cats from being avaliable from being adopted, walked, fostered,");
         Adding_Removing_Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 191, 191), 1, true));
         Adding_Removing_Label.setIconTextGap(9);
-        Adding_Removing_Label.setMaximumSize(new java.awt.Dimension(218, 22));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,9 +181,13 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jTable2.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
         jTable2.getTableHeader().setReorderingAllowed(false);
         jTable2.setVerifyInputWhenFocusTarget(false);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(2).setCellEditor(null);
             jTable2.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(jComboBox1));
         }
 
@@ -233,7 +237,7 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Adding_Removing_Label, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Adding_Removing_Label)
                         .addGap(266, 266, 266)
                         .addComponent(jLabel1)))
                 .addContainerGap(604, Short.MAX_VALUE))
@@ -273,6 +277,14 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         String data = (String)jTable2.getValueAt(row, column);
         jTextField1.setText(data);
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        int selectedRowIndex = jTable2.getSelectedRow();
+        int selectedColumnIndex = jTable2.getSelectedColumn();
+        jTextField1.setText(model.getValueAt(selectedRowIndex,selectedColumnIndex).toString());
+    }//GEN-LAST:event_jTable2MouseClicked
 
     /**
      * @param args the command line arguments
