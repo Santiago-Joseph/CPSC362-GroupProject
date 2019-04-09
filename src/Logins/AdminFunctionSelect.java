@@ -40,7 +40,14 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        pet_name_text = new javax.swing.JTextField();
+        pet_name_label = new javax.swing.JLabel();
+        breed_info_label = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        breed_info_text = new javax.swing.JTextArea();
+        additional_notes_label = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        additional_notes_text = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Add", "Remove" }));
@@ -182,8 +189,8 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jTable2.getTableHeader().setReorderingAllowed(false);
         jTable2.setVerifyInputWhenFocusTarget(false);
         jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable2MousePressed(evt);
             }
         });
         jScrollPane2.setViewportView(jTable2);
@@ -194,28 +201,58 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(247, 247, 247));
         jPanel1.setAutoscrolls(true);
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        pet_name_text.setEditable(false);
+        pet_name_text.setText("jTextField1");
+        pet_name_text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                pet_name_textActionPerformed(evt);
             }
         });
+
+        pet_name_label.setText("PET NAME:");
+
+        breed_info_label.setText("BREED INFO");
+
+        breed_info_text.setColumns(20);
+        breed_info_text.setRows(5);
+        jScrollPane1.setViewportView(breed_info_text);
+
+        additional_notes_label.setText("ADDITIONAL NOTES");
+
+        additional_notes_text.setColumns(20);
+        additional_notes_text.setRows(5);
+        jScrollPane3.setViewportView(additional_notes_text);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(additional_notes_label)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                    .addComponent(breed_info_label)
+                    .addComponent(pet_name_label)
+                    .addComponent(pet_name_text, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(pet_name_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pet_name_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(breed_info_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(additional_notes_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -234,13 +271,13 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Adding_Removing_Label)
                         .addGap(266, 266, 266)
                         .addComponent(jLabel1)))
-                .addContainerGap(604, Short.MAX_VALUE))
+                .addContainerGap(636, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,21 +307,26 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void pet_name_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pet_name_textActionPerformed
         // TODO add your handling code here:
         int row = jTable2.getSelectedRow();
         int column = jTable2.getSelectedColumn();
         String data = (String)jTable2.getValueAt(row, column);
-        jTextField1.setText(data);
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        pet_name_text.setText(data);
+    }//GEN-LAST:event_pet_name_textActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void jTable2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MousePressed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
         int selectedRowIndex = jTable2.getSelectedRow();
-        int selectedColumnIndex = jTable2.getSelectedColumn();
-        jTextField1.setText(model.getValueAt(selectedRowIndex,selectedColumnIndex).toString());
-    }//GEN-LAST:event_jTable2MouseClicked
+        //int selectedColumnIndex = jTable2.getSelectedColumn();
+        
+            pet_name_text.setText(model.getValueAt(selectedRowIndex,0).toString());
+            breed_info_text.setText(model.getValueAt(selectedRowIndex,1).toString());
+            additional_notes_text.setText(model.getValueAt(selectedRowIndex,2).toString());
+        
+        //pet_name_text.setText(model.getValueAt(selectedRowIndex,0).toString());
+    }//GEN-LAST:event_jTable2MousePressed
 
     /**
      * @param args the command line arguments
@@ -323,13 +365,20 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Adding_Removing_Label;
+    private javax.swing.JLabel additional_notes_label;
+    private javax.swing.JTextArea additional_notes_text;
     private javax.swing.ButtonGroup available_options;
+    private javax.swing.JLabel breed_info_label;
+    private javax.swing.JTextArea breed_info_text;
     private javax.swing.JButton jButton1_logout;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel pet_name_label;
+    private javax.swing.JTextField pet_name_text;
     // End of variables declaration//GEN-END:variables
 }
