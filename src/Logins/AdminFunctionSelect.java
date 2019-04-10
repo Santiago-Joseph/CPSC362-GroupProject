@@ -5,6 +5,10 @@
  */
 package Logins;
 
+import javax.swing.JButton;
+import javax.swing.DefaultCellEditor;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author santi
@@ -29,9 +33,35 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
+        available_options = new javax.swing.ButtonGroup();
         jButton1_logout = new javax.swing.JButton();
+        Adding_Removing_Label = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        pet_name_label = new javax.swing.JLabel();
+        breed_info_label = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        breed_info_text = new javax.swing.JTextArea();
+        additional_notes_label = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        additional_notes_text = new javax.swing.JTextArea();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        pet_name_text = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Add", "Remove" }));
+        jComboBox1.setOpaque(false);
+        jComboBox1.setPrototypeDisplayValue("Add");
+        jComboBox1.getAccessibleContext().setAccessibleParent(jTable2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(java.awt.Color.pink);
+        setName("Adding_Removing_Label"); // NOI18N
 
         jButton1_logout.setText("Logout");
         jButton1_logout.addActionListener(new java.awt.event.ActionListener() {
@@ -40,21 +70,229 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
             }
         });
 
+        Adding_Removing_Label.setBackground(new java.awt.Color(255, 209, 220));
+        Adding_Removing_Label.setForeground(new java.awt.Color(0, 0, 0));
+        Adding_Removing_Label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/smallpawprint.png"))); // NOI18N
+        Adding_Removing_Label.setText("Adding and removing dogs or cats");
+        Adding_Removing_Label.setToolTipText("Add or remove dogs or cats from being avaliable from being adopted, walked, fostered,");
+        Adding_Removing_Label.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 191, 191), 1, true));
+        Adding_Removing_Label.setIconTextGap(9);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Name", "Breed", "Note", "Avaliable"
+            }
+        ));
+        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTable2.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jTable2.setVerifyInputWhenFocusTarget(false);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable2MousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(jComboBox1));
+        }
+
+        jPanel1.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel1.setAutoscrolls(true);
+
+        pet_name_label.setText("PET NAME:");
+
+        breed_info_label.setText("BREED INFO");
+
+        breed_info_text.setColumns(20);
+        breed_info_text.setRows(5);
+        jScrollPane1.setViewportView(breed_info_text);
+
+        additional_notes_label.setText("ADDITIONAL NOTES");
+
+        additional_notes_text.setColumns(20);
+        additional_notes_text.setRows(5);
+        jScrollPane3.setViewportView(additional_notes_text);
+
+        pet_name_text.setColumns(20);
+        pet_name_text.setRows(5);
+        jScrollPane4.setViewportView(pet_name_text);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(breed_info_label)
+                            .addComponent(additional_notes_label)
+                            .addComponent(pet_name_label)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(395, 395, 395)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(pet_name_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(breed_info_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(additional_notes_label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel1.setText("Detailed Information");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(541, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(361, 361, 361))
+                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Adding_Removing_Label)
+                        .addGap(266, 266, 266)
+                        .addComponent(jLabel1)))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Adding_Removing_Label, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addComponent(jButton1_logout)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(233, 233, 233))
         );
 
         pack();
@@ -68,6 +306,18 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1_logoutActionPerformed
+
+    private void jTable2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MousePressed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)jTable2.getModel();
+        int selectedRowIndex = jTable2.getSelectedRow();
+        //int selectedColumnIndex = jTable2.getSelectedColumn();
+            pet_name_text.setText(model.getValueAt(selectedRowIndex,0).toString());
+            breed_info_text.setText(model.getValueAt(selectedRowIndex,1).toString());
+            additional_notes_text.setText(model.getValueAt(selectedRowIndex,2).toString());
+        
+        //pet_name_text.setText(model.getValueAt(selectedRowIndex,0).toString());
+    }//GEN-LAST:event_jTable2MousePressed
 
     /**
      * @param args the command line arguments
@@ -105,6 +355,22 @@ public class AdminFunctionSelect extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Adding_Removing_Label;
+    private javax.swing.JLabel additional_notes_label;
+    private javax.swing.JTextArea additional_notes_text;
+    private javax.swing.ButtonGroup available_options;
+    private javax.swing.JLabel breed_info_label;
+    private javax.swing.JTextArea breed_info_text;
     private javax.swing.JButton jButton1_logout;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JLabel pet_name_label;
+    private javax.swing.JTextArea pet_name_text;
     // End of variables declaration//GEN-END:variables
 }
