@@ -85,6 +85,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jbtnLogin.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jbtnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/004-login.png"))); // NOI18N
         jbtnLogin.setText("Login");
         jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +94,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jbtReset.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jbtReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/005-refresh-arrow.png"))); // NOI18N
         jbtReset.setText("Reset");
         jbtReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +103,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jbtnRegister.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jbtnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/writing.png"))); // NOI18N
         jbtnRegister.setText("Sign up");
         jbtnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,8 +263,8 @@ public class Login extends javax.swing.JFrame {
         /*************************************************************************
          * Below Allows you to test without database. Username:Test Password:Test*
          *************************************************************************/
-        
         /*
+        
          String password = jPassword.getText();
          String username = jtxtUsername.getText();
         if(password.contains("test")&&(username.contains("test")))

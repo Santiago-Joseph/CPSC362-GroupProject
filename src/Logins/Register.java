@@ -11,6 +11,9 @@ import java.awt.event.WindowEvent;
 import java.sql.*;
 import java.util.logging.Logger;
 import Logins.Login;
+import static Logins.ManageVolunteers.jTable1;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +24,8 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
+  
+    
     public Register() {
         initComponents();
         setSize(600,700);
@@ -293,11 +298,13 @@ public class Register extends javax.swing.JFrame {
                 Info.setVisible(true);
             }
             
+     
+            
         } catch (SQLException ex) {
          //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-        
+       
     }//GEN-LAST:event_jButton2_registerActionPerformed
 
     private void jButton2_backToLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_backToLoginActionPerformed
@@ -330,7 +337,36 @@ public class Register extends javax.swing.JFrame {
          return checkUser;
     }
     
-    
+    public void fillStudentJtable(JTable table, String valueToSearch)
+    {
+        Connection con = MyConnection.getConnection();
+        PreparedStatement ps;
+        try{
+            ps = con.prepareStatement("SELECT * FROM `login` WHERE CONCAT(`username`,`fname`,`lname`,`address`,`birthday`)LIKE ?");
+            ps.setString(1, "%"+valueToSearch+"%");
+            
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)table.getModel();
+            
+            Object[] row;
+            
+            while(rs.next()){
+                row = new Object[6];
+                row[0]=rs.getInt(1);
+                row[1]=rs.getString(2);
+                row[2]=rs.getString(4);
+                row[3]=rs.getString(5);
+                row[4]=rs.getString(6);
+                row[5]=rs.getString(7);
+                
+                model.addRow(row);
+            }
+        }catch (SQLException ex) {
+            //Logger.getLogger(register.class.getName()).log(level.SEVERE,null, ex);
+        }
+        
+        
+    }
     
     /**
      * @param args the command line arguments

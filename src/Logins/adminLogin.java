@@ -11,6 +11,7 @@ import Logins.Login;
 import java.sql.*;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author santi
@@ -90,6 +91,7 @@ public class adminLogin extends javax.swing.JFrame {
         });
 
         jbtnLogin.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jbtnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/004-login.png"))); // NOI18N
         jbtnLogin.setText("Login");
         jbtnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +100,7 @@ public class adminLogin extends javax.swing.JFrame {
         });
 
         jbtReset.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jbtReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/005-refresh-arrow.png"))); // NOI18N
         jbtReset.setText("Reset");
         jbtReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,15 +221,23 @@ public class adminLogin extends javax.swing.JFrame {
         Connection connection;
         PreparedStatement ps;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/adminlogin", "root", "");
-            ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname` FROM `login` WHERE `username`=?AND`password`=?");
+            String namehold;
+            connection = DriverManager.getConnection("jdbc:mysql://localhost/barklogin", "root", "");
+            ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname` FROM `adminlogin` WHERE `username`=?AND`password`=?");
             ps.setString(1,jtxtUsername.getText());
             ps.setString(2, String.valueOf(jPassword.getPassword()));
+            
             ResultSet result = ps.executeQuery();
             if(result.next()){
                 dispose();
                 AdminFunctionSelect Info = new AdminFunctionSelect();
                 Info.setVisible(true);
+                AdminFunctionSelect.AdminNameLabel.setText("Hi, "+jtxtUsername.getText());
+                AdminFunctionSelect.Volunteerlabel.setText("Volunteer Count: "+Integer.toString(countFunc.countData("login")));
+                AdminFunctionSelect.AnimalLabel.setText("Animal Count: "+Integer.toString(countFunc.countData("animals")));
+                
+                
+                
 
             }
             else{
@@ -247,7 +258,7 @@ public class adminLogin extends javax.swing.JFrame {
         /*************************************************************************
          * Below Allows you to test without database. Username:Test Password:Test*
          *************************************************************************/
-        
+        /*
         
         String password = jPassword.getText();
         String username = jtxtUsername.getText();
@@ -260,6 +271,7 @@ public class adminLogin extends javax.swing.JFrame {
             dispose();
             AdminFunctionSelect Info = new AdminFunctionSelect();
             Info.setVisible(true);
+            
         }
         else
         {
@@ -268,7 +280,7 @@ public class adminLogin extends javax.swing.JFrame {
             jtxtUsername.setText(null);
         }
         
-        
+        */
         /**********************************************
          *Above code allows to login without database *
          **********************************************/
