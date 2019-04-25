@@ -26,7 +26,7 @@ public class ManageVolunteers extends javax.swing.JFrame {
         initComponents();
         setSize(1250,660);
         setLocationRelativeTo(null); 
-        reg.fillStudentJtable(jTable1, "");
+        reg.fillJtable(jTable1, "");
     }
 
     /**
@@ -288,7 +288,7 @@ public class ManageVolunteers extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "User Updated");
             }
             jTable1.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","Last Name","Username","Birthday","Address"}));
-            reg.fillStudentJtable(jTable1,"");
+            reg.fillJtable(jTable1,"");
      
             
         } catch (SQLException ex) {
@@ -325,7 +325,7 @@ public class ManageVolunteers extends javax.swing.JFrame {
     private void jtxt_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxt_searchKeyReleased
         // TODO add your handling code here:
         jTable1.setModel(new DefaultTableModel(null, new Object[]{"ID","First Name","Last Name","Username","Birthday","Address"}));
-        reg.fillStudentJtable(jTable1, jtxt_search.getText());
+        reg.fillJtable(jTable1, jtxt_search.getText());
     }//GEN-LAST:event_jtxt_searchKeyReleased
 
     public boolean checkUsername(String username,int id)

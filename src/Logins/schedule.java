@@ -6,6 +6,7 @@
 package Logins;
 import Logins.Volunteer;
 import Logins.Adoption;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,8 +19,11 @@ public class schedule extends javax.swing.JFrame {
      */
     public schedule() {
         initComponents();
-        setSize(1250,660);
+        setSize(1196,753);
         setLocationRelativeTo(null); 
+      
+       // setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
     }
 
     /**
@@ -32,25 +36,38 @@ public class schedule extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        welcomeLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        AnimalLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 0, 0));
         setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Logins/BarkBackground.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -1, 670, 630));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BarkBackground.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 670, 590));
 
-        jLabel2.setFont(new java.awt.Font("Castellar", 1, 62)); // NOI18N
-        jLabel2.setText("WELCOME");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 400, 90));
+        nameLabel.setFont(new java.awt.Font("Castellar", 1, 62)); // NOI18N
+        nameLabel.setText("<#####>");
+        getContentPane().add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 400, 90));
 
+        welcomeLabel.setFont(new java.awt.Font("Castellar", 1, 62)); // NOI18N
+        welcomeLabel.setText("WELCOME");
+        getContentPane().add(welcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 400, 90));
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 153));
         jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jButton1.setText("Volunteer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,16 +75,41 @@ public class schedule extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 170, 270, 110));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 580, 190, 80));
 
+        jButton2.setBackground(new java.awt.Color(255, 204, 153));
         jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jButton2.setText("Adoption");
+        jButton2.setMaximumSize(new java.awt.Dimension(143, 41));
+        jButton2.setMinimumSize(new java.awt.Dimension(143, 41));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 360, 270, 110));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 580, 180, 80));
+
+        AnimalLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        AnimalLabel.setText("Animal Count:");
+        getContentPane().add(AnimalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 510, 160, 24));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel2.setText("Our central mission is to place companion animals in loving homes");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, 550, 40));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel3.setText("with compassionate people who will make lifelong commitments ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 280, 540, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jLabel4.setText("to them by accepting them as a member of their family.");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 320, 500, -1));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/animal-prints.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 150, 160));
+
+        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 740));
 
         jMenu2.setText("File");
 
@@ -90,14 +132,14 @@ public class schedule extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-            dispose();
+            
             Volunteer Info = new Volunteer();
             Info.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        dispose();
+        
         Adoption Info = new Adoption();
         Info.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -145,13 +187,20 @@ public class schedule extends javax.swing.JFrame {
     } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel AnimalLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables
 
 }

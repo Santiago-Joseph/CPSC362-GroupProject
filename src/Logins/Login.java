@@ -228,7 +228,7 @@ public class Login extends javax.swing.JFrame {
         /******************************************
          * Below Allows you to test with database.*
          ******************************************/
-        
+     
         
          Connection connection;
         PreparedStatement ps;
@@ -237,11 +237,14 @@ public class Login extends javax.swing.JFrame {
             ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname` FROM `login` WHERE `username`=?AND`password`=?");
             ps.setString(1,jtxtUsername.getText());
             ps.setString(2, String.valueOf(jPassword.getPassword()));
+           
             ResultSet result = ps.executeQuery();
             if(result.next()){
                 dispose();
                 schedule Info = new schedule();
                 Info.setVisible(true);
+                schedule.nameLabel.setText("Hi, "+jtxtUsername.getText());
+                schedule.AnimalLabel.setText("Animal Count: "+Integer.toString(countFunc.countData("animals")));
                 
             }
             else{

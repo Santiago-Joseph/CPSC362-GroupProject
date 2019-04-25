@@ -5,6 +5,15 @@
  */
 package Logins;
 import Logins.schedule;
+import Logins.MyConnection;
+import java.awt.Image;
+import javax.swing.table.DefaultTableModel;
+import java.sql.*;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+
 
 /**
  *
@@ -15,10 +24,12 @@ public class Adoption extends javax.swing.JFrame {
     /**
      * Creates new form Adoption
      */
+     Register reg = new Register();
     public Adoption() {
         initComponents();
         setSize(1250,660);
         setLocationRelativeTo(null); 
+        filldogJtable(dogtable, "");
     }
 
     /**
@@ -30,70 +41,334 @@ public class Adoption extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        dogtable = new javax.swing.JTable();
+        jLabel_search = new javax.swing.JLabel();
+        dogSearch = new javax.swing.JTextField();
+        jButton2_delete = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel_ID = new javax.swing.JLabel();
+        jLabel_fname = new javax.swing.JLabel();
+        jLabel_lname = new javax.swing.JLabel();
+        jLabel_username = new javax.swing.JLabel();
+        jLabel_bYear = new javax.swing.JLabel();
+        jLabel_address = new javax.swing.JLabel();
+        IDbox = new javax.swing.JTextField();
+        nameBox = new javax.swing.JTextField();
+        breedBox = new javax.swing.JTextField();
+        sizeBox = new javax.swing.JTextField();
+        ageBox = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        aboutBox = new javax.swing.JTextArea();
+        dogPic = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 204));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("BACK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        dogtable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name", "Breed", "Size", "Age", "About"
+            }
+        ));
+        dogtable.setGridColor(new java.awt.Color(255, 153, 51));
+        dogtable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dogtableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(dogtable);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 64, 528, -1));
+
+        jLabel_search.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_search.setText("Search");
+        getContentPane().add(jLabel_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 18, 73, -1));
+
+        dogSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        dogSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                dogSearchActionPerformed(evt);
+            }
+        });
+        dogSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dogSearchKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dogSearchKeyTyped(evt);
+            }
+        });
+        getContentPane().add(dogSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 16, 375, 32));
+
+        jButton2_delete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/003-pet.png"))); // NOI18N
+        jButton2_delete.setText("Adopt");
+        jButton2_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_deleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 240, 70));
+
+        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+
+        jLabel_ID.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_ID.setText("ID:");
+
+        jLabel_fname.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_fname.setText("Name:");
+
+        jLabel_lname.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_lname.setText("Breed:");
+
+        jLabel_username.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_username.setText("Size:");
+
+        jLabel_bYear.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_bYear.setText("Age:");
+
+        jLabel_address.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
+        jLabel_address.setText("About:");
+
+        IDbox.setBackground(new java.awt.Color(255, 153, 51));
+        IDbox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        IDbox.setBorder(null);
+        IDbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDboxActionPerformed(evt);
             }
         });
 
-        jMenu2.setText("File");
+        nameBox.setBackground(new java.awt.Color(255, 153, 51));
+        nameBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        nameBox.setBorder(null);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Logout");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
+        breedBox.setBackground(new java.awt.Color(255, 153, 51));
+        breedBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        breedBox.setBorder(null);
 
-        jMenuBar1.add(jMenu2);
+        sizeBox.setBackground(new java.awt.Color(255, 153, 51));
+        sizeBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        sizeBox.setBorder(null);
 
-        setJMenuBar(jMenuBar1);
+        ageBox.setBackground(new java.awt.Color(255, 153, 51));
+        ageBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        ageBox.setBorder(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(547, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setAlignmentX(0.0F);
+        jScrollPane1.setAlignmentY(0.0F);
+
+        aboutBox.setBackground(new java.awt.Color(255, 153, 51));
+        aboutBox.setColumns(20);
+        aboutBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        aboutBox.setLineWrap(true);
+        aboutBox.setRows(5);
+        aboutBox.setAlignmentX(0.0F);
+        aboutBox.setAlignmentY(0.0F);
+        aboutBox.setBorder(null);
+        jScrollPane1.setViewportView(aboutBox);
+
+        jLabel1.setFont(new java.awt.Font("Haettenschweiler", 0, 48)); // NOI18N
+        jLabel1.setText("ADOPT A PET");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_bYear)
+                                    .addComponent(jLabel_username, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel_ID, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(IDbox, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel_fname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_lname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel_address, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(breedBox, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ageBox, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(dogPic, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(845, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(357, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dogPic, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_ID)
+                    .addComponent(IDbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel_fname)
+                        .addGap(16, 16, 16))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(breedBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_lname))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel_username)
+                    .addComponent(sizeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_bYear)
+                    .addComponent(ageBox, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_address)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 690));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void dogtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dogtableMouseClicked
         // TODO add your handling code here:
-            dispose();
-            schedule Info = new schedule();
-            Info.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        int rowIndex = dogtable.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel)dogtable.getModel();
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        IDbox.setText(model.getValueAt(rowIndex,0).toString());
+        sizeBox.setText(model.getValueAt(rowIndex,3).toString());
+        nameBox.setText(model.getValueAt(rowIndex,1).toString());
+        breedBox.setText(model.getValueAt(rowIndex,2).toString());
+        ageBox.setText(model.getValueAt(rowIndex,4).toString());
+        aboutBox.setText(model.getValueAt(rowIndex,5).toString());
+        aboutBox.setCaretPosition(0);
+            
+try{
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/barklogin","root","");
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM `animals` where ID = '"+IDbox.getText()+"'");
+                if(rs.next()){
+                    byte[] img = rs.getBytes("picture");
+
+
+
+                    //Resize The ImageIcon
+                    ImageIcon image = new ImageIcon(img);
+                    Image im = image.getImage();
+                    Image myImg = im.getScaledInstance(dogPic.getWidth(), dogPic.getHeight(),Image.SCALE_SMOOTH);
+                    ImageIcon newImage = new ImageIcon(myImg);
+                    dogPic.setIcon(newImage);
+                }
+                
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+                
+    }//GEN-LAST:event_dogtableMouseClicked
+
+    private void dogSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dogSearchActionPerformed
         // TODO add your handling code here:
-        dispose();
-        Login Info = new Login();
-        Info.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_dogSearchActionPerformed
 
+    private void dogSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dogSearchKeyReleased
+        // TODO add your handling code here:
+        dogtable.setModel(new DefaultTableModel(null, new Object[]{"ID","Name","Breed","Size","Age","About"}));
+        filldogJtable(dogtable, dogSearch.getText());
+        
+    }//GEN-LAST:event_dogSearchKeyReleased
+
+    private void dogSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dogSearchKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dogSearchKeyTyped
+
+    private void jButton2_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_deleteActionPerformed
+        // TODO add your handling code here:
+        int ID = Integer.valueOf(IDbox.getText());
+        
+        PreparedStatement ps;
+        String query = "DELETE FROM `animals` WHERE `ID` = ?";
+        
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+            
+            ps.setInt(1, ID);
+           
+            if(ps.executeUpdate() > 0)
+            {
+                JOptionPane.showMessageDialog(null, "Thank you for showing interst in Adopting.\nWe will contact you with more information.");
+            }
+            dogtable.setModel(new DefaultTableModel(null, new Object[]{"ID" ,"Name","Breed","Size","Age","About"}));
+            filldogJtable(dogtable,"");
+             } catch (SQLException ex) {
+         //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+            
+    }//GEN-LAST:event_jButton2_deleteActionPerformed
+
+    private void IDboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDboxActionPerformed
+
+    public void filldogJtable(JTable table, String valueToSearch)
+    {
+        Connection con = MyConnection.getConnection();
+        PreparedStatement ps;
+        try{
+            ps = con.prepareStatement("SELECT * FROM `animals` WHERE CONCAT(`Name`,`breed`,`Size`,`age`,`Notes`)LIKE ?");
+            ps.setString(1, "%"+valueToSearch+"%");
+            
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)table.getModel();
+            
+            Object[] row;
+            
+            while(rs.next()){
+                row = new Object[6];
+                row[0]=rs.getInt(1);
+                row[1]=rs.getString(2);
+                row[2]=rs.getString(3);
+                row[3]=rs.getString(4);
+                row[4]=rs.getInt(5);
+                row[5]=rs.getString(7);
+                model.addRow(row);
+            }
+        }catch (SQLException ex) {
+            //Logger.getLogger(register.class.getName()).log(level.SEVERE,null, ex);
+        }}
+    
+       //public ImageIcon getImage(){
+         //  return new ImageIcon(pic);
+      // }
+    
     /**
      * @param args the command line arguments
      */
@@ -127,12 +402,30 @@ public class Adoption extends javax.swing.JFrame {
                 new Adoption().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JTextField IDbox;
+    private javax.swing.JTextArea aboutBox;
+    private javax.swing.JTextField ageBox;
+    private javax.swing.JTextField breedBox;
+    private javax.swing.JLabel dogPic;
+    private javax.swing.JTextField dogSearch;
+    public static javax.swing.JTable dogtable;
+    private javax.swing.JButton jButton2_delete;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel_ID;
+    private javax.swing.JLabel jLabel_address;
+    private javax.swing.JLabel jLabel_bYear;
+    private javax.swing.JLabel jLabel_fname;
+    private javax.swing.JLabel jLabel_lname;
+    private javax.swing.JLabel jLabel_search;
+    private javax.swing.JLabel jLabel_username;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField nameBox;
+    private javax.swing.JTextField sizeBox;
     // End of variables declaration//GEN-END:variables
 }
