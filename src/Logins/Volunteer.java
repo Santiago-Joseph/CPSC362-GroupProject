@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Logins;
+import static Logins.Adoption.dogtable;
 import Logins.schedule;
 import Logins.MyConnection;
 import java.awt.Image;
@@ -26,7 +27,8 @@ public class Volunteer extends javax.swing.JFrame {
     public Volunteer() {
         initComponents();
         setSize(1250,660);
-        setLocationRelativeTo(null); 
+        setLocationRelativeTo(null);
+        filldogJtable(dogtable, "");
     }
 
     /**
@@ -49,10 +51,10 @@ public class Volunteer extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         dogtable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        dogSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         aboutBox = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        jButton3_volunteer = new javax.swing.JButton();
         ageBox = new javax.swing.JTextField();
         sizeBox = new javax.swing.JTextField();
         breedBox = new javax.swing.JTextField();
@@ -121,8 +123,6 @@ public class Volunteer extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Search");
 
-        jTextField1.setText("jTextField1");
-
         jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setAlignmentX(0.0F);
@@ -138,7 +138,12 @@ public class Volunteer extends javax.swing.JFrame {
         aboutBox.setBorder(null);
         jScrollPane1.setViewportView(aboutBox);
 
-        jButton1.setText("Volunteer");
+        jButton3_volunteer.setText("Volunteer");
+        jButton3_volunteer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3_volunteerActionPerformed(evt);
+            }
+        });
 
         ageBox.setBackground(new java.awt.Color(255, 153, 51));
         ageBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
@@ -210,10 +215,11 @@ public class Volunteer extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(breedBox, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(dogPic, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(dogPic, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(191, 191, 191)
@@ -221,7 +227,7 @@ public class Volunteer extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3_volunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
@@ -229,7 +235,7 @@ public class Volunteer extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(dogSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(369, 369, 369))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,10 +247,10 @@ public class Volunteer extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(dogPic, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dogPic, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel_ID)
                             .addComponent(IDbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,7 +280,7 @@ public class Volunteer extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dogSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +292,7 @@ public class Volunteer extends javax.swing.JFrame {
                                 .addGap(420, 420, 420))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton3_volunteer, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
 
@@ -362,13 +368,61 @@ public class Volunteer extends javax.swing.JFrame {
 
     }//GEN-LAST:event_dogtableMouseClicked
 
+    private void dogSearchActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+    }                                         
+
+    private void dogSearchKeyReleased(java.awt.event.KeyEvent evt) {                                      
+        // TODO add your handling code here:
+        dogtable.setModel(new DefaultTableModel(null, new Object[]{"ID","Name","Breed","Size","Age","About"}));
+        filldogJtable(dogtable, dogSearch.getText());
+        
+    }                                     
+
+    private void dogSearchKeyTyped(java.awt.event.KeyEvent evt) {                                   
+        // TODO add your handling code here:
+    }                                  
+
     private void sizeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sizeBoxActionPerformed
 
     private void IDboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDboxActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+    }                                     
+
+    public void filldogJtable(JTable table, String valueToSearch)
+    {
+        Connection con = MyConnection.getConnection();
+        PreparedStatement ps;
+        try{
+            ps = con.prepareStatement("SELECT * FROM `animals` WHERE CONCAT(`Name`,`breed`,`Size`,`age`,`Notes`)LIKE ?");
+            ps.setString(1, "%"+valueToSearch+"%");
+            
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)table.getModel();
+            
+            Object[] row;
+            
+            while(rs.next()){
+                row = new Object[6];
+                row[0]=rs.getInt(1);
+                row[1]=rs.getString(2);
+                row[2]=rs.getString(3);
+                row[3]=rs.getString(4);
+                row[4]=rs.getInt(5);
+                row[5]=rs.getString(7);
+                model.addRow(row);
+            }
+        }catch (SQLException ex) {
+            //Logger.getLogger(register.class.getName()).log(level.SEVERE,null, ex);
+        }
     }//GEN-LAST:event_IDboxActionPerformed
+
+    private void jButton3_volunteerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_volunteerActionPerformed
+        JOptionPane.showMessageDialog(null, "Thank you, your volutnteer date has been saved.\nWe will contact you with more information.");
+       
+    }//GEN-LAST:event_jButton3_volunteerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -411,8 +465,9 @@ public class Volunteer extends javax.swing.JFrame {
     private javax.swing.JTextField ageBox;
     private javax.swing.JTextField breedBox;
     private javax.swing.JLabel dogPic;
+    private javax.swing.JTextField dogSearch;
     public static javax.swing.JTable dogtable;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3_volunteer;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -429,7 +484,6 @@ public class Volunteer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nameBox;
     private javax.swing.JTextField sizeBox;
     // End of variables declaration//GEN-END:variables
