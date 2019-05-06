@@ -5,6 +5,7 @@
  */
 package Logins;
 import Logins.schedule;
+import Logins.Login;
 import Logins.MyConnection;
 import java.awt.Image;
 import javax.swing.table.DefaultTableModel;
@@ -24,7 +25,7 @@ public class Adoption extends javax.swing.JFrame {
     /**
      * Creates new form Adoption
      */
-     Register reg = new Register();
+     
     public Adoption() {
         initComponents();
         setSize(1250,660);
@@ -311,16 +312,13 @@ try{
 
     private void jButton2_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_deleteActionPerformed
         // TODO add your handling code here:
+        /*This code deletes from database
         int ID = Integer.valueOf(IDbox.getText());
-        
         PreparedStatement ps;
-        String query = "DELETE FROM `animals` WHERE `ID` = ?";
-        
+        String query = "DELETE FROM `animals` WHERE `ID` = ?"; 
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
-            
             ps.setInt(1, ID);
-           
             if(ps.executeUpdate() > 0)
             {
                 JOptionPane.showMessageDialog(null, "Thank you for showing interst in Adopting.\nWe will contact you with more information.");
@@ -330,10 +328,14 @@ try{
              } catch (SQLException ex) {
          //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       end of delete code */
+
             
     }//GEN-LAST:event_jButton2_deleteActionPerformed
 
+    
+    
+    
     private void IDboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_IDboxActionPerformed

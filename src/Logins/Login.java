@@ -237,7 +237,8 @@ public class Login extends javax.swing.JFrame {
             ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname` FROM `login` WHERE `username`=?AND`password`=?");
             ps.setString(1,jtxtUsername.getText());
             ps.setString(2, String.valueOf(jPassword.getPassword()));
-           
+            
+            
             ResultSet result = ps.executeQuery();
             if(result.next()){
                 dispose();
@@ -373,7 +374,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton jbtReset;
     private javax.swing.JButton jbtnLogin;
     private javax.swing.JButton jbtnRegister;
-    private javax.swing.JTextField jtxtUsername;
+    public static javax.swing.JTextField jtxtUsername;
     // End of variables declaration//GEN-END:variables
 
     private void systemExit()
