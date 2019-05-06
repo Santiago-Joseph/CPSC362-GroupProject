@@ -313,15 +313,7 @@ try{
 
     private void jButton2_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_deleteActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
-        /*This code deletes from database
-        int ID = Integer.valueOf(IDbox.getText());
-        PreparedStatement ps;
-        String query = "DELETE FROM `animals` WHERE `ID` = ?"; 
-        try {
-            ps = MyConnection.getConnection().prepareStatement(query);
-            ps.setInt(1, ID);
-=======
+
         int dog_ID = Integer.valueOf(IDbox.getText());
         int volunteer_ID = Login.global_ID;
         //UPDATE `table_name` SET `column_name` = `new_value' [WHERE condition];
@@ -336,9 +328,7 @@ try{
             ps.setInt(1, dog_ID);
             ps.setInt(2, 1);
             ps.setInt(3, volunteer_ID);
-            
-           
->>>>>>> 0c6544fd00a2a6aeeedb4e3f82a693824798ac1b
+
             if(ps.executeUpdate() > 0)
             {
                 JOptionPane.showMessageDialog(null, "Thank you for showing interst in Adopting.\nWe will contact you with more information.");
@@ -348,9 +338,13 @@ try{
              } catch (SQLException ex) {
          //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
         }
-       end of delete code */
+
 
             
+        
+        
+        
+        
     }//GEN-LAST:event_jButton2_deleteActionPerformed
 
     
