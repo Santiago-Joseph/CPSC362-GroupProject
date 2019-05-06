@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Logins;
+import Logins.Login;
 import Logins.schedule;
 import Logins.Login;
 import Logins.MyConnection;
@@ -115,7 +116,7 @@ public class Adoption extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 240, 70));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(203, 255, 203));
 
         jLabel_ID.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel_ID.setText("ID:");
@@ -135,7 +136,7 @@ public class Adoption extends javax.swing.JFrame {
         jLabel_address.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel_address.setText("About:");
 
-        IDbox.setBackground(new java.awt.Color(255, 153, 51));
+        IDbox.setBackground(new java.awt.Color(235, 249, 235));
         IDbox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         IDbox.setBorder(null);
         IDbox.addActionListener(new java.awt.event.ActionListener() {
@@ -144,19 +145,19 @@ public class Adoption extends javax.swing.JFrame {
             }
         });
 
-        nameBox.setBackground(new java.awt.Color(255, 153, 51));
+        nameBox.setBackground(new java.awt.Color(235, 249, 235));
         nameBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         nameBox.setBorder(null);
 
-        breedBox.setBackground(new java.awt.Color(255, 153, 51));
+        breedBox.setBackground(new java.awt.Color(235, 249, 235));
         breedBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         breedBox.setBorder(null);
 
-        sizeBox.setBackground(new java.awt.Color(255, 153, 51));
+        sizeBox.setBackground(new java.awt.Color(235, 249, 235));
         sizeBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         sizeBox.setBorder(null);
 
-        ageBox.setBackground(new java.awt.Color(255, 153, 51));
+        ageBox.setBackground(new java.awt.Color(235, 249, 235));
         ageBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         ageBox.setBorder(null);
 
@@ -165,7 +166,7 @@ public class Adoption extends javax.swing.JFrame {
         jScrollPane1.setAlignmentX(0.0F);
         jScrollPane1.setAlignmentY(0.0F);
 
-        aboutBox.setBackground(new java.awt.Color(255, 153, 51));
+        aboutBox.setBackground(new java.awt.Color(235, 249, 235));
         aboutBox.setColumns(20);
         aboutBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         aboutBox.setLineWrap(true);
@@ -312,6 +313,7 @@ try{
 
     private void jButton2_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_deleteActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         /*This code deletes from database
         int ID = Integer.valueOf(IDbox.getText());
         PreparedStatement ps;
@@ -319,6 +321,24 @@ try{
         try {
             ps = MyConnection.getConnection().prepareStatement(query);
             ps.setInt(1, ID);
+=======
+        int dog_ID = Integer.valueOf(IDbox.getText());
+        int volunteer_ID = Login.global_ID;
+        //UPDATE `table_name` SET `column_name` = `new_value' [WHERE condition];
+        
+        PreparedStatement ps;
+        //String query = "DELETE FROM `animals` WHERE `ID` = ?";
+        String query = "UPDATE `login` SET `DOG_ID` = ?, `isAdopting` = ? WHERE `ID` = ?"; 
+            
+        try {
+            ps = MyConnection.getConnection().prepareStatement(query);
+           
+            ps.setInt(1, dog_ID);
+            ps.setInt(2, 1);
+            ps.setInt(3, volunteer_ID);
+            
+           
+>>>>>>> 0c6544fd00a2a6aeeedb4e3f82a693824798ac1b
             if(ps.executeUpdate() > 0)
             {
                 JOptionPane.showMessageDialog(null, "Thank you for showing interst in Adopting.\nWe will contact you with more information.");

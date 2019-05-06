@@ -51,7 +51,7 @@ public class schedule extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(2000, 2000));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,7 +67,7 @@ public class schedule extends javax.swing.JFrame {
         welcomeLabel.setText("WELCOME");
         getContentPane().add(welcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 400, 90));
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 153));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jButton1.setText("Volunteer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +108,7 @@ public class schedule extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/animal-prints.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 150, 160));
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(203, 255, 203));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 740));
 
         jMenu2.setText("File");
