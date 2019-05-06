@@ -21,13 +21,14 @@ import java.util.logging.Logger;
  */
 public class Login extends javax.swing.JFrame {
 
-
+    public static int global_ID;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         setSize(900,700);
+        
         setLocationRelativeTo(null); 
         
     }
@@ -240,6 +241,7 @@ public class Login extends javax.swing.JFrame {
            
             ResultSet result = ps.executeQuery();
             if(result.next()){
+                global_ID = result.getInt("ID");
                 dispose();
                 schedule Info = new schedule();
                 Info.setVisible(true);
@@ -327,6 +329,7 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
