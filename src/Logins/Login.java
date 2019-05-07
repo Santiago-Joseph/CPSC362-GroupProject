@@ -235,7 +235,7 @@ public class Login extends javax.swing.JFrame {
         PreparedStatement ps;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost/barklogin", "root", "");
-            ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname` FROM `login` WHERE `username`=?AND`password`=?");
+            ps = connection.prepareStatement("SELECT `ID`, `username`, `password`, `fname`, `lname`, `isAdopting` FROM `login` WHERE `username`=?AND`password`=?");
             ps.setString(1,jtxtUsername.getText());
             ps.setString(2, String.valueOf(jPassword.getPassword()));
            
@@ -245,8 +245,11 @@ public class Login extends javax.swing.JFrame {
                 dispose();
                 schedule Info = new schedule();
                 Info.setVisible(true);
+                int adoptingnumbers = result.getInt("isAdopting");
                 schedule.nameLabel.setText("Hi, "+jtxtUsername.getText());
                 schedule.AnimalLabel.setText("Animal Count: "+Integer.toString(countFunc.countData("animals")));
+                schedule.adoptingProcess.setText("Adoptions in Process: " + Integer.toString(adoptingnumbers));
+                
                 
             }
             else{
