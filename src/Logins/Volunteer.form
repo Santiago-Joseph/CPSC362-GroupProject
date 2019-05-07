@@ -119,30 +119,35 @@
                           <Component id="dogPic" min="-2" pref="316" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="182" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="125" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="jButton3_volunteer" min="-2" pref="165" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" pref="65" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="dogSearch" min="-2" pref="294" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="182" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" pref="65" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="dogSearch" min="-2" pref="294" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jScrollPane2" min="-2" pref="528" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jScrollPane2" min="-2" pref="528" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jTextField1" min="-2" pref="146" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jButton3_volunteer" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -191,7 +196,6 @@
                               </Group>
                               <Component id="nameBox" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="379" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -200,23 +204,21 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="431" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace pref="31" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="420" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton3_volunteer" min="-2" pref="63" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="jButton3_volunteer" min="-2" pref="63" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <EmptySpace min="379" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -478,55 +480,15 @@
             <Property name="text" type="java.lang.String" value="Date"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JTextField" name="jTextField1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="maximumRowCount" type="int" value="50"/>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="38">
-                <StringItem index="0" value="May 9th, 2019"/>
-                <StringItem index="1" value="May 10th, 2019"/>
-                <StringItem index="2" value="May 11th, 2019"/>
-                <StringItem index="3" value="May 12th, 2019"/>
-                <StringItem index="4" value="May 13th, 2019"/>
-                <StringItem index="5" value="May 14th, 2019"/>
-                <StringItem index="6" value="May 15th, 2019"/>
-                <StringItem index="7" value="May 16th, 2019"/>
-                <StringItem index="8" value="May 17th, 2019"/>
-                <StringItem index="9" value="May 18th, 2019"/>
-                <StringItem index="10" value="May 19th, 2019"/>
-                <StringItem index="11" value="May 20th, 2019"/>
-                <StringItem index="12" value="May 21th, 2019"/>
-                <StringItem index="13" value="May 22th, 2019"/>
-                <StringItem index="14" value="May 23th, 2019"/>
-                <StringItem index="15" value="May 24th, 2019"/>
-                <StringItem index="16" value="May 25th, 2019"/>
-                <StringItem index="17" value="May 26th, 2019"/>
-                <StringItem index="18" value="May 27th, 2019"/>
-                <StringItem index="19" value="May 28th, 2019"/>
-                <StringItem index="20" value="May 29th, 2019"/>
-                <StringItem index="21" value="May 30th, 2019"/>
-                <StringItem index="22" value="May 31th, 2019"/>
-                <StringItem index="23" value="June 1st, 2019"/>
-                <StringItem index="24" value="June 2nd, 2019"/>
-                <StringItem index="25" value="June 3rd, 2019"/>
-                <StringItem index="26" value="June 4th, 2019"/>
-                <StringItem index="27" value="June 5th, 2019"/>
-                <StringItem index="28" value="June 6th, 2019"/>
-                <StringItem index="29" value="June 7th, 2019"/>
-                <StringItem index="30" value="June 8th, 2019"/>
-                <StringItem index="31" value="June 9th, 2019"/>
-                <StringItem index="32" value="June 10th, 2019"/>
-                <StringItem index="33" value="June 11th, 2019"/>
-                <StringItem index="34" value="June 12th, 2019"/>
-                <StringItem index="35" value="June 13th, 2019"/>
-                <StringItem index="36" value="June 14th, 2019"/>
-                <StringItem index="37" value="June 15th, 2019"/>
-              </StringArray>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="YYYY-MM-DD"/>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
