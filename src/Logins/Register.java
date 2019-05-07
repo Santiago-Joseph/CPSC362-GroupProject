@@ -12,6 +12,7 @@ import java.sql.*;
 import java.util.logging.Logger;
 import Logins.Login;
 import static Logins.ManageVolunteers.jTable1;
+import java.text.SimpleDateFormat;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -61,7 +62,7 @@ public class Register extends javax.swing.JFrame {
         jtxtREPass = new javax.swing.JPasswordField();
         jtxt_phone = new javax.swing.JTextField();
         jLabel_phone = new javax.swing.JLabel();
-        jtxt_bYear = new javax.swing.JTextField();
+        choosebdate = new com.toedter.calendar.JDateChooser();
         jButton2_register = new javax.swing.JButton();
         jButton2_backToLogin = new javax.swing.JButton();
 
@@ -115,8 +116,6 @@ public class Register extends javax.swing.JFrame {
         jLabel_phone.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         jLabel_phone.setText("Phone Number:");
 
-        jtxt_bYear.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,15 +131,17 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jLabel_fname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtxt_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtxt_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jtxt_phone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                        .addComponent(jtxtREPass, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jtxt_Pass, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jtxt_username, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                        .addComponent(jtxt_bYear, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addComponent(jtxt_phone, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(jtxtREPass)
+                    .addComponent(jtxt_Pass)
+                    .addComponent(jtxt_username, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                    .addComponent(choosebdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxt_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtxt_fname, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(74, 74, 74))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,11 +172,15 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4_retype)
                     .addComponent(jtxtREPass, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel_bYear)
-                    .addComponent(jtxt_bYear, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_bYear)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                        .addComponent(choosebdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_phone)
                     .addComponent(jtxt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -253,15 +258,16 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton2_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_registerActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
         String fname = jtxt_fname.getText();
         String lname = jtxt_lname.getText();
         String uname = jtxt_username.getText();
         String pass = String.valueOf(jtxt_Pass.getPassword());
         String re_pass = String.valueOf(jtxtREPass.getPassword());
-        String bdate = jtxt_bYear.getText();
+        
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        String bdate = dateformat.format(choosebdate.getDate());
+        //String bdate = jtxt_bYear.getText();
         String phoneNum = jtxt_phone.getText();
         String address = jtxt_address.getText();
                 
@@ -290,43 +296,37 @@ public class Register extends javax.swing.JFrame {
         
         else{
         
-            
         PreparedStatement ps;
-        String query = "INSERT INTO `login`(`username`, `password`, `fname`, `lname`, `address`, `birthday`,`Phone`) VALUES (?,?,?,?,?,?,?)";
-        
-        try {
-            ps = MyConnection.getConnection().prepareStatement(query);
-            
-            ps.setString(1, uname);
-            ps.setString(2, pass);
-            ps.setString(3, fname);
-            ps.setString(4, lname);
-            //ps.setString(7, phoneNum);
-            ps.setString(5, address);
-            
-            if(bdate != null)
-            {
-             ps.setString(6, bdate);
-            }else{
-                ps.setNull(6, 0);
+            String query = "INSERT INTO `login`(`username`, `password`, `fname`, `lname`, `address`, `birthday`, `Phone`, `isAdopting`, `DOG_ID`) VALUES (?,?,?,?,?,?,?,?,?)";
+
+            try {
+                ps = MyConnection.getConnection().prepareStatement(query);
+
+                ps.setString(1, uname);
+                ps.setString(2, pass);
+                ps.setString(3, fname);
+                ps.setString(4, lname);
+                ps.setString(5, address);
+                ps.setString(6, bdate);
+                ps.setString(7, phoneNum);
+                ps.setInt(8,0);
+                ps.setInt(9,0);
+
+                if(ps.executeUpdate() > 0)
+                {
+                    JOptionPane.showMessageDialog(null, "New User Add");
+                    jtxt_fname.setText(null);
+                    jtxt_lname.setText(null);
+                    jtxt_username.setText(null);
+                    jtxt_Pass.setText(null);
+                    jtxtREPass.setText(null);
+                    jtxt_phone.setText(null);
+                    jtxt_address.setText(null);
+                }
+
+            } catch (SQLException ex) {
+                //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
-           
-            
-            
-            
-            if(ps.executeUpdate() > 0)
-            {
-                JOptionPane.showMessageDialog(null, "New User Add");
-                dispose();
-                Login Info = new Login();
-                Info.setVisible(true);
-            }
-            
-     
-            
-        } catch (SQLException ex) {
-         //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
         }
        
     }//GEN-LAST:event_jButton2_registerActionPerformed
@@ -429,6 +429,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser choosebdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2_backToLogin;
     private javax.swing.JButton jButton2_register;
@@ -447,7 +448,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField jtxtREPass;
     private javax.swing.JPasswordField jtxt_Pass;
     private javax.swing.JTextArea jtxt_address;
-    private javax.swing.JTextField jtxt_bYear;
     private javax.swing.JTextField jtxt_fname;
     private javax.swing.JTextField jtxt_lname;
     private javax.swing.JTextField jtxt_phone;
