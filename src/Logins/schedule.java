@@ -36,7 +36,6 @@ public class schedule extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nameLabel = new javax.swing.JLabel();
         welcomeLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -46,6 +45,7 @@ public class schedule extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        nameLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -59,15 +59,10 @@ public class schedule extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/BarkBackground.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 670, 590));
 
-        nameLabel.setFont(new java.awt.Font("Castellar", 1, 62)); // NOI18N
-        nameLabel.setText("<#####>");
-        getContentPane().add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 400, 90));
-
-        welcomeLabel.setFont(new java.awt.Font("Castellar", 1, 62)); // NOI18N
+        welcomeLabel.setFont(new java.awt.Font("Castellar", 1, 48)); // NOI18N
         welcomeLabel.setText("WELCOME");
-        getContentPane().add(welcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 400, 90));
+        getContentPane().add(welcomeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 320, 90));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jButton1.setText("Volunteer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +72,6 @@ public class schedule extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 580, 190, 80));
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 153));
         jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
         jButton2.setText("Adoption");
         jButton2.setMaximumSize(new java.awt.Dimension(143, 41));
@@ -109,6 +103,27 @@ public class schedule extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 150, 160));
 
         jPanel1.setBackground(new java.awt.Color(203, 255, 203));
+
+        nameLabel.setFont(new java.awt.Font("Castellar", 1, 48)); // NOI18N
+        nameLabel.setText("<#####>");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(381, Short.MAX_VALUE)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(329, 329, 329))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(622, Short.MAX_VALUE))
+        );
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 740));
 
         jMenu2.setText("File");
