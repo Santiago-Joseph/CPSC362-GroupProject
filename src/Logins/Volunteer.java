@@ -436,7 +436,6 @@ public class Volunteer extends javax.swing.JFrame {
                 ps.setNull(6, 0);
                 }
             }catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Please input a dat to volunteer.");
              //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
             }
         
