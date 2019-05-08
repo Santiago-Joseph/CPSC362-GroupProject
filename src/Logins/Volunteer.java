@@ -430,10 +430,10 @@ public class Volunteer extends javax.swing.JFrame {
                 ps = MyConnection.getConnection().prepareStatement(query);
                 if (volunteerDate != null)
                 {
-                ps.setString(8, volunteerDate);
+                ps.setString(1, volunteerDate);
                 }
                 else{
-                ps.setNull(6, 0);
+                ps.setNull(1, 0);
                 }
             }catch (SQLException ex) {
              //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
