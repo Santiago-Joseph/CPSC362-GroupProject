@@ -9,6 +9,7 @@ import Logins.schedule;
 import Logins.Login;
 import Logins.MyConnection;
 import java.awt.Image;
+import java.io.InputStream;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import java.util.logging.Logger;
@@ -22,7 +23,7 @@ import javax.swing.JTable;
  * @author santi
  */
 public class Adoption extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Adoption
      */
@@ -171,6 +172,7 @@ public class Adoption extends javax.swing.JFrame {
         aboutBox.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         aboutBox.setLineWrap(true);
         aboutBox.setRows(5);
+        aboutBox.setWrapStyleWord(true);
         aboutBox.setAlignmentX(0.0F);
         aboutBox.setAlignmentY(0.0F);
         aboutBox.setBorder(null);
@@ -279,13 +281,13 @@ try{
                 ResultSet rs = st.executeQuery("SELECT * FROM `animals` where ID = '"+IDbox.getText()+"'");
                 if(rs.next()){
                     byte[] img = rs.getBytes("picture");
-
+                  //  InputStream binarystuff = rs.getBinaryStream("picture");
 
 
                     //Resize The ImageIcon
                     ImageIcon image = new ImageIcon(img);
                     Image im = image.getImage();
-                    Image myImg = im.getScaledInstance(dogPic.getWidth(), dogPic.getHeight(),Image.SCALE_SMOOTH);
+                    Image myImg = im.getScaledInstance(dogPic.getWidth(), dogPic.getHeight(),Image.SCALE_REPLICATE);
                     ImageIcon newImage = new ImageIcon(myImg);
                     dogPic.setIcon(newImage);
                 }
@@ -316,6 +318,7 @@ try{
 
         int dog_ID = Integer.valueOf(IDbox.getText());
         int volunteer_ID = Login.global_ID;
+        if(Login.adopting_check == false){
         //UPDATE `table_name` SET `column_name` = `new_value' [WHERE condition];
         
         PreparedStatement ps;
@@ -331,12 +334,17 @@ try{
 
             if(ps.executeUpdate() > 0)
             {
+                
                 JOptionPane.showMessageDialog(null, "Thank you for showing interst in Adopting.\nWe will contact you with more information.");
             }
             dogtable.setModel(new DefaultTableModel(null, new Object[]{"ID" ,"Name","Breed","Size","Age","About"}));
             filldogJtable(dogtable,"");
              } catch (SQLException ex) {
          //  Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+        else{
+            JOptionPane.showMessageDialog(null, "ERROR: you are currently in the process of adopting a dog already. You can only adopt one dog at a time");
         }
 
 
@@ -390,6 +398,7 @@ try{
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+         
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
