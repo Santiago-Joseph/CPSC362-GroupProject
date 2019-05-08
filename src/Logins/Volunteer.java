@@ -426,13 +426,14 @@ public class Volunteer extends javax.swing.JFrame {
             PreparedStatement ps;
             String query = "INSERT INTO `login`(VolunteerDate) VALUES (?)";            
             try {
-                JOptionPane.showMessageDialog(null, "Thank you, your volutnteer date has been saved.\nWe will contact you with more information.");
                 ps = MyConnection.getConnection().prepareStatement(query);
                 if (volunteerDate != null)
                 {
+                JOptionPane.showMessageDialog(null, "Thank you, your volutnteer date has been saved.\nWe will contact you with more information.");
                 ps.setString(1, volunteerDate);
                 }
                 else{
+                    JOptionPane.showMessageDialog(null, "Please enter a date.");
                 ps.setNull(1, 0);
                 }
             }catch (SQLException ex) {
